@@ -40,6 +40,7 @@ import android.view.ViewGroup;
 import com.amazonaws.mobile.samples.mynotes.data.Note;
 import com.amazonaws.mobile.samples.mynotes.data.NoteViewHolder;
 import com.amazonaws.mobile.samples.mynotes.data.NotesContentContract;
+import com.amazonaws.mobile.client.AWSMobileClient;
 
 /**
  * An activity representing a list of Notes. This activity
@@ -81,6 +82,9 @@ public class NoteListActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        AWSMobileClient.getInstance().initialize(this).execute();
+
         setContentView(R.layout.activity_note_list);
 
         // Install the application crash handler.  This is only done on the first activity.
